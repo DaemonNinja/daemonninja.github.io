@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DaemonNinja - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-color: #0f0f0f;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace, 'Segoe UI Emoji', 'Apple Color Emoji';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .terminal-border {
+      border: 2px solid #00ff00;
+      padding: 1.5rem;
+      background-color: #121212;
+      box-shadow: 0 0 15px #00ff00;
+    }
+    .cursor {
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+    .flag {
+      display: inline-block;
+      width: 1.5rem;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-border text-center max-w-md w-full">
+    <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-green-400 mb-4" />
+    <h1 class="text-2xl font-bold mb-2">DaemonNinja</h1>
+    <p class="text-green-300">
+      👨‍💻 Self-taught coder exploring the intersection of creativity, AI, and terminal vibes.<br>
+      🔍 Currently learning Python, HTML/CSS, and building cool stuff in VS Code.<br>
+      🧠 Vibe coding with SynthWave themes and Fira Code fonts.<br>
+      💬 Discord: <span class="text-green-400">@thesaintmaster</span><br>
+      📅 Age: <span class="text-green-400">28</span><br>
+      ⚧️ Pronouns: <span class="text-green-400">He/Him</span><br>
+      🌍 Country: <span class="text-green-400"><img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/us.svg" alt="USA Flag" class="flag" />USA</span>
+    </p>
+    <div class="mt-2 text-green-400 text-sm">
+      $ <span class="cursor">█</span>
+    </div>
+  </div>
+</body>
+</html>
