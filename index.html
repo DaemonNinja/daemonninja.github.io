@@ -26,6 +26,17 @@
       box-shadow: 0 0 15px #00ff00;
     }
     .cursor {
+      display: inline-block;
+      width: auto;
+      min-width: 10px;
+      height: 20px;
+      background-color: transparent;
+      animation: blink 1s steps(2, start) infinite;
+      vertical-align: bottom;
+      margin-left: 2px;
+    }
+    .cursor::after {
+      content: "|";
       animation: blink 1s steps(2, start) infinite;
     }
     @keyframes blink {
@@ -43,21 +54,45 @@
   </style>
 </head>
 <body>
-  <div class="terminal-border text-center max-w-md w-full">
-    <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-green-400 mb-4" />
-    <h1 class="text-2xl font-bold mb-2">DaemonNinja</h1>
-    <p class="text-green-300">
-      👨‍💻 Self-taught coder exploring the intersection of creativity, AI, and terminal vibes.<br>
-      🔍 Currently learning Python, HTML/CSS, and building cool stuff in VS Code.<br>
-      🧠 Vibe coding with SynthWave themes and Fira Code fonts.<br>
-      💬 Discord: <span class="text-green-400">@thesaintmaster</span><br>
-      📅 Age: <span class="text-green-400">28</span><br>
-      ⚧️ Pronouns: <span class="text-green-400">He/Him</span><br>
-      🌍 Country: <span class="text-green-400"><img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/us.svg" alt="USA Flag" class="flag" />USA</span>
-    </p>
-    <div class="mt-2 text-green-400 text-sm">
-      $ <span class="cursor">█</span>
+  <div class="terminal-border text-left max-w-md w-full">
+    <div class="text-center">
+      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto border-4 border-green-400 mb-4" />
+      <h1 class="text-2xl font-bold mb-2">DaemonNinja</h1>
+      <div class="mt-4 text-green-400 text-sm">
+        <a href="https://github.com/DaemonNinja" target="_blank" class="text-green-400 hover:text-green-300">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+      </div>
+    </div>
+    <div class="mt-6 text-green-300 whitespace-pre-line text-sm">
+      <span id="typing-container"></span><span class="cursor" id="typing-cursor"></span>
     </div>
   </div>
+
+  <script>
+    const text = `Self-taught coder exploring the intersection of creativity, AI, and terminal vibes.
+Currently learning Python, HTML/CSS, and building cool stuff in VS Code.
+Vibe coding with SynthWave themes and Fira Code fonts.
+Discord: @thesaintmaster
+Age: 28
+Pronouns: He/Him
+Country: USA`;
+
+    const container = document.getElementById('typing-container');
+    const cursor = document.getElementById('typing-cursor');
+    let index = 0;
+
+    function type() {
+      if (index <= text.length) {
+        container.textContent = text.substring(0, index);
+        index++;
+        setTimeout(type, 120);
+      } else {
+        cursor.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', type);
+  </script>
 </body>
 </html>
