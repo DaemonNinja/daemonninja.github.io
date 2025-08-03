@@ -65,12 +65,12 @@
       </div>
     </div>
     <div class="mt-6 text-green-300 whitespace-pre-line text-sm">
-      <span id="typing-container"></span><span class="cursor" id="typing-cursor"></span>
+      <span id="prompt">daemonninja@github.io:~$</span> <span id="typing-container"></span><span class="cursor" id="typing-cursor"></span>
     </div>
   </div>
 
   <script>
-    const text = `Self-taught coder exploring the intersection of creativity, AI, and terminal vibes.
+    const text = ` Self-taught coder exploring the intersection of creativity, AI, and terminal vibes.
 Currently learning Python, HTML/CSS, and building cool stuff in VS Code.
 Vibe coding with SynthWave themes and Fira Code fonts.
 Discord: @thesaintmaster
@@ -80,19 +80,26 @@ Country: USA`;
 
     const container = document.getElementById('typing-container');
     const cursor = document.getElementById('typing-cursor');
+    const prompt = document.getElementById('prompt');
     let index = 0;
 
     function type() {
       if (index <= text.length) {
         container.textContent = text.substring(0, index);
         index++;
-        setTimeout(type, 120);
+        setTimeout(type, 150);
       } else {
         cursor.style.display = 'none';
       }
     }
 
-    document.addEventListener('DOMContentLoaded', type);
+    document.addEventListener('DOMContentLoaded', () => {
+      prompt.style.visibility = 'hidden';
+      setTimeout(() => {
+        prompt.style.visibility = 'visible';
+        type();
+      }, 800);
+    });
   </script>
 </body>
 </html>
